@@ -1,10 +1,12 @@
 package com.onesoft.common.util;
 
-public final class StringUtil {
-
-    private StringUtil() {}
+public class StringUtil {
 
     public static boolean isEmpty(String str) {
-        return str == null || str.trim().isEmpty();
+        return str == null || str.isEmpty();
+    }
+
+    public static boolean isNotEmpty(String str) {
+        return !isEmpty(str);
     }
 }
