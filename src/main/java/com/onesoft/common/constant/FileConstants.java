@@ -3,9 +3,9 @@ package com.onesoft.common.constant;
 /**
  * 공통 상수 정의 클래스
  */
-public final class Constants {
+public final class FileConstants {
 
-    private Constants() {
+    private FileConstants() {
         // 인스턴스 생성 방지
     }
 

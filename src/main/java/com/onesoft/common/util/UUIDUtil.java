@@ -10,7 +10,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.onesoft.common.constant.Constants;
+import com.onesoft.common.constant.FileConstants;
 
 public class UUIDUtil {
 	private static final Logger logger = LoggerFactory.getLogger(UUIDUtil.class);
@@ -100,14 +100,14 @@ public class UUIDUtil {
 
             String absolutePath = file.getAbsolutePath();
 
-            int unpackedIndex = absolutePath.indexOf(Constants.UNPACKED_SUFFIX);
+            int unpackedIndex = absolutePath.indexOf(FileConstants.UNPACKED_SUFFIX);
             if (unpackedIndex == -1) {
                 // _unpacked 구조가 아님
                 return null;
             }
 
             // "_unpacked" 끝 위치까지 포함
-            int endIndex = unpackedIndex + Constants.UNPACKED_SUFFIX.length();
+            int endIndex = unpackedIndex + FileConstants.UNPACKED_SUFFIX.length();
 
             // 예: /data/sample/aa.zip_unpacked
             String unpackedRootPath = absolutePath.substring(0, endIndex);
@@ -115,7 +115,7 @@ public class UUIDUtil {
             // "_unpacked" 제거
             String originalFilePath =
                     unpackedRootPath.substring(0,
-                            unpackedRootPath.length() - Constants.UNPACKED_SUFFIX.length());
+                            unpackedRootPath.length() - FileConstants.UNPACKED_SUFFIX.length());
 
             File originalFile = new File(originalFilePath);
 
@@ -148,12 +148,12 @@ public class UUIDUtil {
 
             String absolutePath = file.getAbsolutePath();
 
-            int unpackedIndex = absolutePath.lastIndexOf(Constants.UNPACKED_SUFFIX);
+            int unpackedIndex = absolutePath.lastIndexOf(FileConstants.UNPACKED_SUFFIX);
             if (unpackedIndex == -1) {
                 return null;
             }
 
-            int suffixLength = Constants.UNPACKED_SUFFIX.length();
+            int suffixLength = FileConstants.UNPACKED_SUFFIX.length();
             int endIndex = unpackedIndex + suffixLength;
 
             // 예: /aa.zip_unpacked/test.zip_unpacked
